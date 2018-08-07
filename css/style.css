@@ -1,17 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css');
 
 body, html {
     margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    padding-top: 1.5rem;
 }
 
 #banner {
     background: linear-gradient(135deg, #9600fb 0%, #00ffd0 100%);
+}
+
+.big-banner {
     padding: 4rem 0;
+    min-height: 100vh;
     height: 100%;
 }
 
 #banner .card * {
-    color: #2b2b2b;
+    background-color: #262f3d;
+    color: #a6a6a6;
 }
 
 #banner .card:hover {
@@ -24,4 +32,16 @@ body, html {
     top: 0;
     left: 0;
     width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        padding: 1rem 1rem;
+    }
+}
+@media screen and (min-width: 769px) {
+    .content {
+        padding-top: 1rem;
+        width: 30%;
+    }
 }

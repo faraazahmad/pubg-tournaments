@@ -85,82 +85,114 @@
         </div>
     </nav>
 
-    <section id="banner" class="big-banner hero is-small is-primary">
+    <section id="banner" class="hero is-small is-primary">
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    Competitions
+                    Sign Up
                 </h1>
                 <h2 class="subtitle">
                     Register to play and win!
                 </h2>
 
-                <div class="columns">
-                    <div class="column">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image">
-                                    <img src="img/squad.jpg" alt="Squad mode">
-                                </figure>
-                            </div>
-                            <div class="card-content">
-                                <div class="media">
-                                    <div class="media-content">
-                                        <p class="title is-4">Squad</p>
-                                    </div>
-                                </div>
-                        
-                                <div class="content">
-                                    Team up in groups of 2, 3 or 4 players and take on everyone in the match.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image">
-                                    <img src="img/duo.jpg" alt="Duo mode">
-                                </figure>
-                            </div>
-                            <div class="card-content">
-                                <div class="media">
-                                    <div class="media-content">
-                                        <p class="title is-4">Duo</p>
-                                    </div>
-                                </div>
-                    
-                                <div class="content">
-                                    Pair up with another individual compete to be the last ones alive.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image">
-                                    <img src="img/solo.jpg" alt="Solo mode">
-                                </figure>
-                            </div>
-                            <div class="card-content">
-                                <div class="media">
-                                    <div class="media-content">
-                                        <p class="title is-4">Solo</p>
-                                    </div>
-                                </div>
-                    
-                                <div class="content">
-                                    Spawn into the world alone andjust rely on your own tactics and skill to push to the
-                                    end and be the last player alive.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
+
+    <div class="content container">
+        <div class="field">
+            <label class="label">PUBG username</label>
+            <div class="control has-icons-left">
+                <input class="input" type="text" placeholder="Example: n00b$layerPRO">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                </span>
+            </div>
+        </div>
+        
+        
+        <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input" type="email" placeholder="Enter email" value="">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Instagram ID</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input" type="email" placeholder="Example: @examplePerson" value="">
+                <span class="icon is-small is-left">
+                    <i class="fab fa-instagram"></i>
+                </span>
+            </div>
+        </div>
+        
+        <div class="field">
+            <label class="label">Phone number</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input" type="email" value="">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-phone"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">payment phone number</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input" type="email" value="">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-phone"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Select game mode</label>
+            <div class="control">
+                <div class="select">
+                    <select>
+                        <option>Squad</option>
+                        <option>Duo</option>
+                        <option>Solo</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox"> I agree to the
+                    <a href="#">terms and conditions</a>
+                </label>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="control">
+                <label class="radio">
+                    <input type="radio" name="question"> Yes
+                </label>
+                <label class="radio">
+                    <input type="radio" name="question"> No
+                </label>
+            </div>
+        </div>
+        
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link">Submit</button>
+            </div>
+            <div class="control">
+                <button class="button is-text">Cancel</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 <!-- Firebase stuff -->
