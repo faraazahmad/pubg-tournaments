@@ -1,0 +1,27 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css');
+
+body, html {
+    margin: 0;
+}
+
+#banner {
+    background: linear-gradient(135deg, #9600fb 0%, #00ffd0 100%);
+    padding: 4rem 0;
+    height: 100%;
+}
+
+#banner .card * {
+    color: #2b2b2b;
+}
+
+#banner .card:hover {
+    transform: translateY(-0.15);
+}
+
+.navbar {
+    background-color: #262f3d !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
