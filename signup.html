@@ -38,6 +38,19 @@
                             </p>
                         </div>
                     </div>
+
+                    <div class="navbar-item">
+                        <div class="field is-grouped">
+                            <p class="control">
+                                <a class="button is-danger" href="https://www.instagram.com/pubgtournaments2018/">
+                                    <span class="icon">
+                                        <i class="fab fa-instagram"></i>
+                                    </span>
+                                    <span>Instagram</span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -57,22 +70,42 @@
         </div>
     </section>
 
-    <div class="body container">
+    <div id="form" class="body container">
         <div class="field">
-            <label class="label">PUBG username</label>
+            <h3 class="title">Next Few Matches Schedule</h3>
+            <p>
+                <strong>SQUAD</strong> - 09:00 PM 8 AUGUST WEDNESDAY ( ENTRY FEES-120₹ PER SQUAD )
+                <strong>SOLO</strong> - 11:30 PM 8 AUGUST WEDNESDAY ( ENTRY FEES-100₹ PER PERSON )
+            </p>
+            <p>
+                <span class="has-text-danger">* = required</span>
+            </p>
+        </div>
+
+        <div class="field">
+            <label class="label">PUBG username<span class="has-text-danger">*</span></label>
             <div class="control has-icons-left">
-                <input class="input" type="text" placeholder="Example: n00b$layerPRO">
+                <input name="username" class="input" type="text" placeholder="Example: n00b$layerPRO">
                 <span class="icon is-small is-left">
                     <i class="fas fa-user"></i>
                 </span>
             </div>
         </div>
         
+        <div class="field">
+            <label class="label">Your teammates' PUBG usernames</label>
+            <div class="control has-icons-left">
+                <input name="teammates" class="input" type="text" placeholder="Example: n00b$layerPRO, progamer,">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                </span>
+            </div>
+        </div>
         
         <div class="field">
-            <label class="label">Email</label>
+            <label class="label">Email<span class="has-text-danger">*</span></label>
             <div class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="Enter email" value="">
+                <input name="email" class="input" type="email" placeholder="Enter email" value="">
                 <span class="icon is-small is-left">
                     <i class="fas fa-envelope"></i>
                 </span>
@@ -80,9 +113,9 @@
         </div>
 
         <div class="field">
-            <label class="label">Instagram ID</label>
+            <label class="label">Instagram ID<span class="has-text-danger">*</span></label>
             <div class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="Example: @examplePerson" value="">
+                <input name="insta" class="input" type="email" placeholder="Example: @examplePerson" value="">
                 <span class="icon is-small is-left">
                     <i class="fab fa-instagram"></i>
                 </span>
@@ -90,9 +123,9 @@
         </div>
         
         <div class="field">
-            <label class="label">Phone number</label>
+            <label class="label">Phone number<span class="has-text-danger">*</span></label>
             <div class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="Enter number" value="">
+                <input name="phone" class="input" type="email" placeholder="Enter number" value="">
                 <span class="icon is-small is-left">
                     <i class="fas fa-phone"></i>
                 </span>
@@ -100,9 +133,9 @@
         </div>
 
         <div class="field">
-            <label class="label">Payment phone number</label>
+            <label class="label">Payment phone number<span class="has-text-danger">*</span></label>
             <div class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="Enter number" value="">
+                <input name="payphone" class="input" type="email" placeholder="Enter number" value="">
                 <span class="icon is-small is-left">
                     <i class="fas fa-phone"></i>
                 </span>
@@ -110,41 +143,37 @@
         </div>
 
         <div class="field">
-            <label class="label">Select game mode</label>
-            <div class="control">
-                <div class="select">
-                    <select>
-                        <option>Squad</option>
-                        <option>Duo</option>
-                        <option>Solo</option>
-                    </select>
-                </div>
+            <label class="label">
+                Link to payment screenshot (Same Number 9810589033 PAYTM/TEZ/PHONEPE)
+                <span class="has-text-danger">*</span><br>
+                <span class="has-text-grey">
+                     (upload to Google Drive and share link)
+                </span>
+            </label>
+            <div class="control has-icons-left has-icons-right">
+                <input name="screenshot" class="input" type="url" placeholder="Enter link" value="">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-link"></i>
+                </span>
             </div>
         </div>
         
         <div class="field">
-            <div class="control">
+            <label class="label">Preferred game timing and mode<span class="has-text-danger">*</span></label>
+            <div id="timing" class="control">
                 <label class="checkbox">
-                    <input type="checkbox"> I agree to the
-                    <a href="#">terms and conditions</a>
+                    <input name="squad-checkbox" type="checkbox"> 09:00 PM ( SQUAD 8 AUGUST 2018)
                 </label>
-            </div>
-        </div>
-        
-        <div class="field">
-            <div class="control">
-                <label class="radio">
-                    <input type="radio" name="question"> Yes
-                </label>
-                <label class="radio">
-                    <input type="radio" name="question"> No
+                <br>
+                <label class="checkbox">
+                    <input name="solo-checkbox" type="checkbox"> 11:30 PM ( SOLO 8 AUGUST 2018 )
                 </label>
             </div>
         </div>
         
         <div class="field is-grouped">
             <div class="control">
-                <button class="button is-link">Submit</button>
+                <button onclick="signUp()" class="button is-link">Submit</button>
             </div>
             <div class="control">
                 <button class="button is-text">Cancel</button>
@@ -159,6 +188,7 @@
 <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
 
 <script src="js/ui.js"></script>
+<script src="js/firebase.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link 
     rel="stylesheet" 
