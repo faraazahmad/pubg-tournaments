@@ -118,9 +118,13 @@ function signUp() {
 
     // if everything is okay
     firestore.collection("users").add(data)
-    .then((err) => {
-        
-    });
+        .then(function () {
+            window.location.replace('/');
+        })
+        .catch(function (error) {
+            console.error("Error writing document: ", error);
+        });
+
     alert('Registration succesful.');
     // window.location.replace('/');
 }
