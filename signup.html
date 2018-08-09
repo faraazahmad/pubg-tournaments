@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PUBG Tournament</title>
 </head>
-<body>
+<body on onload="signIn()">
     <nav class="navbar is-transparent is-black">
         <div class="container">
             <div class="navbar-brand">
@@ -71,6 +71,14 @@
     </section>
 
     <div id="form" class="body container">
+        <div id="user-card" class="field">
+            <div class="tag is-rounded is-large">
+                <figure class="image is-32x32">
+                    <img class="is-rounded" id="user-img" src="">
+                </figure>&nbsp;
+                <strong id="user-name"></strong>
+            </div>
+        </div>
         <div class="field">
             <h3 class="title">Next Few Matches Schedule</h3>
             <p>
@@ -186,6 +194,7 @@
 <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
 
 <script src="js/ui.js"></script>
 <script src="js/firebase.js"></script>

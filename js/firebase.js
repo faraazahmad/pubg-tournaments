@@ -9,6 +9,49 @@ var config = {
     messagingSenderId: "568585129544"
 };
 firebase.initializeApp(config);
+
+// Auth stuff
+let provider = new firebase.auth.GoogleAuthProvider();
+
+function signIn() {
+    // check if user is signed in
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            // signed in
+            getUserData();
+        }
+        else {
+            //  not signed in; sign in
+            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
+                .then(function () {
+                    // In memory persistence will be applied to the signed in Google user
+                    // even though the persistence was set to 'none' and a page redirect
+                    // occurred.
+                    return firebase.auth().signInWithRedirect(provider);
+                })
+                .catch(function (error) {
+                    // Handle Errors here.
+                    let errorCode = error.code;
+                    let errorMessage = error.message;
+
+                    alert("Error signing in" + errorMessage + " " + errorCode);
+                });
+        }
+    });
+}
+
+function getUserData() {
+    let user = firebase.auth().currentUser;
+    if(user != null) {
+        let nameTag = document.querySelector('#user-name');
+        nameTag.innerHTML = user.displayName;
+
+        let imgTag = document.querySelector('#user-img');
+        imgTag.src = user.photoURL;
+    }
+}
+
+// Firestore stuff
 const firestore = firebase.firestore();
 const settings = { timestampsInSnapshots: true };
 firestore.settings(settings);
@@ -69,11 +112,15 @@ function signUp() {
         payPhone: payPhone,
         screenshotLink: screenshotLink,
         modes: modes,
-        squad: squad
+        squad: squad,
+        uid: firebase.auth().currentUser.uid
     };
 
     // if everything is okay
-    firestore.collection("users").add(data);
+    firestore.collection("users").add(data)
+    .then((err) => {
+        
+    });
     alert('Registration succesful.');
     // window.location.replace('/');
 }
