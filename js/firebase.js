@@ -97,7 +97,6 @@ function signUp() {
     if (squadCheckbox) {
         modes.push("squad");
         squad = teamMates.split(",");
-
     }
     if (soloCheckbox) {
         modes.push("solo");
@@ -119,12 +118,25 @@ function signUp() {
     // if everything is okay
     firestore.collection("users").add(data)
         .then(function () {
-            window.location.replace('/');
+            window.location.replace('/')
+            .then(() => {
+                alert('Registration succesful.');
+            });
         })
         .catch(function (error) {
             console.error("Error writing document: ", error);
         });
 
-    alert('Registration succesful.');
     // window.location.replace('/');
+}
+
+function getRegistrations() {
+    /*let usersRef = firestore.collection("users");
+    usersRef.where("username", "==", "mastercode98")
+    .get()
+    .then((data) => {
+        console.log(data);
+    })
+    */
+    firestore.collection("users").get().then((stuff) => { console.log(stuff) })
 }
