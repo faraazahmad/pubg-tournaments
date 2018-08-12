@@ -8,3 +8,6 @@ $("#registrations-page").addEventListener("load", signIn());
 
 // put user name and pic on .navbar when it loads
 $('.navbar').addEventListener("load", getUserData());
+
+// add view registrations button on navbar
+$('.navbar-start').addEventListener("load", addViewRegButton());

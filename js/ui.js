@@ -24,10 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-var $ = function (param) {
-    return document.querySelector(param);
-}
-
 // create and return a div for listing registrations page
 function createRow(userObject) {
     let row = document.createElement('tr');
@@ -75,10 +71,56 @@ function createRow(userObject) {
 function getUserData() {
     let user = firebase.auth().currentUser;
     if (user != null) {
-        let nameTag = document.querySelector('#user-name');
-        nameTag.innerHTML = user.displayName;
+        $('#user-name').innerHTML = user.displayName;
+    }
+}
 
-        let imgTag = document.querySelector('#user-img');
-        imgTag.src = user.photoURL;
+// Add view registraions button to navbar if current user is admin
+function addViewRegButton() {
+    let user = firebase.auth().currentUser;
+    if(user != null) {
+        let adminIDs = [
+            'sfaraaz.1@gmail.com',
+            'prithipal007@gmail.com',
+            'batrapratham999@gmail.com',
+            'ulhassan.shabi123@gmail.com',
+            'Afzalhussain555@gmail.com'
+        ];
+
+        // check if current logged in user is an admin
+        if(adminIDs.includes(user.email)) {
+
+            /*
+                STRUCTURE FOLLOWED:
+
+                .navbar-start
+                    .navbar-item
+                        .field
+                            .control
+                                .button
+
+            */
+
+            let start = $('.navbar-start');
+            
+            let item = document.createElement('div');
+            item.className = 'navbar-item';
+
+            let field = document.createElement('div');
+            field.className += 'field is-grouped';
+
+            let control = document.createElement('p');
+            control.className = 'control';
+
+            let button = document.createElement('a');
+            button.className += 'button is-link';
+            button.innerHTML = "View Registrations";
+            button.href = '/registrations.html';
+
+            control.appendChild(button);
+            field.appendChild(control);
+            item.appendChild(field);
+            start.appendChild(item);
+        }
     }
 }
