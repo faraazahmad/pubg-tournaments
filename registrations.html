@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PUBG Tournaments | Registrations</title>
+    <script src="js/helper.js"></script>
+</head>
+<body onload="signIn()">
+    <nav onload="getUserData()" class="navbar is-transparent is-black">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <strong>PUBG Tournaments</strong>
+                </a>
+                <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        
+            <div id="navbarExampleTransparentExample" class="navbar-menu">
+                <div onload="addViewRegButton()" class="navbar-start"></div>
+        
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="field is-grouped">
+                            <p class="control">
+                                <a class="button is-primary" href="/signup.html">
+                                    <span class="icon">
+                                        <i class="fas fa-user-plus"></i>
+                                    </span>
+                                    <span>Register</span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="navbar-item">
+                        <div class="field is-grouped">
+                            <p class="control">
+                                <a class="button is-danger" href="https://www.instagram.com/pubgtournaments2018/">
+                                    <span class="icon">
+                                        <i class="fab fa-instagram"></i>
+                                    </span>
+                                    <span>Instagram</span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="navbar-item">
+                        <div class="field is-grouped">
+                            <p class="control">
+                                <a id="user-name" class="button is-dark"></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="banner" class="hero is-small is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    User Registrations
+                </h1>
+            </div>
+        </div>
+    </section>
+    <br>
+
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>
+                        <abbr title="Registered Email">email</abbr>
+                    </th>
+                    <th>
+                        <abbr title="Intagram ID">insta ID</abbr>
+                    </th>
+                    <th>
+                        Modes
+                    </th>
+                    <th>
+                        <abbr title="Registered phone number">Phone</abbr>
+                    </th>
+                    <th>
+                        <abbr title="payment phone number">Pay. no.</abbr>
+                    </th>
+                    <th>
+                        <abbr title="Screenshot Link">link</abbr>
+                    </th>
+                    <th>
+                        <abbr title="Points">Squad</abbr>
+                    </th>
+                </tr>
+            </thead>
+            <tbody onload="getRegistrations()" id="users-list"></tbody>
+        </table>
+    </div>
+</body>
+
+<!-- Firebase stuff -->
+<script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+
+<script src="js/ui.js"></script>
+<script src="js/firebase.js"></script>
+<script src="js/events.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link 
+    rel="stylesheet" 
+    href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+</html>

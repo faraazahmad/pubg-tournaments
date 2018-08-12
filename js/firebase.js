@@ -40,17 +40,6 @@ function signIn() {
     });
 }
 
-function getUserData() {
-    let user = firebase.auth().currentUser;
-    if(user != null) {
-        let nameTag = document.querySelector('#user-name');
-        nameTag.innerHTML = user.displayName;
-
-        let imgTag = document.querySelector('#user-img');
-        imgTag.src = user.photoURL;
-    }
-}
-
 // Firestore stuff
 const firestore = firebase.firestore();
 const settings = { timestampsInSnapshots: true };
@@ -97,7 +86,6 @@ function signUp() {
     if (squadCheckbox) {
         modes.push("squad");
         squad = teamMates.split(",");
-
     }
     if (soloCheckbox) {
         modes.push("solo");
@@ -105,7 +93,6 @@ function signUp() {
 
     let data = {
         username: username,
-        teamMates: teamMates,
         email: email,
         instaID: instaID,
         phone: phone,
@@ -119,12 +106,35 @@ function signUp() {
     // if everything is okay
     firestore.collection("users").add(data)
         .then(function () {
-            window.location.replace('/');
+            window.location.replace('/')
+            .then(() => {
+                alert('Registration succesful.');
+            });
         })
         .catch(function (error) {
             console.error("Error writing document: ", error);
         });
 
-    alert('Registration succesful.');
     // window.location.replace('/');
+}
+
+async function getRegistrations() {
+    let records = [];
+
+    // wait for data to arrive from database
+    await firestore.collection("users").get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            records.push(doc.data());
+        })
+    })
+    
+    let usersList = $('#users-list');
+    records.forEach((user) => {
+        usersList.appendChild(createRow(user));
+    })
+}
+
+function getCurrentUser() {
+    return firebase.auth().currentUser;
 }

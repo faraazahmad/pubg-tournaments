@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PUBG Tournament</title>
+    <script src="js/helper.js"></script>
 </head>
-<body on onload="signIn()">
+<body onload="signIn()">
     <nav class="navbar is-transparent is-black">
         <div class="container">
             <div class="navbar-brand">
@@ -21,9 +22,7 @@
             </div>
         
             <div id="navbarExampleTransparentExample" class="navbar-menu">
-                <div class="navbar-start">
-                    
-                </div>
+                <div class="navbar-start"></div>
         
                 <div class="navbar-end">
                     <div class="navbar-item">
@@ -51,6 +50,14 @@
                             </p>
                         </div>
                     </div>
+
+                    <div class="navbar-item">
+                        <div class="field is-grouped">
+                            <p class="control">
+                                <a id="user-name" class="button is-dark"></a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,16 +76,9 @@
             </div>
         </div>
     </section>
+    <br>
 
     <div id="form" class="body container">
-        <div id="user-card" class="field">
-            <div class="tag is-rounded is-large">
-                <figure class="image is-32x32">
-                    <img class="is-rounded" id="user-img" src="">
-                </figure>&nbsp;
-                <strong id="user-name"></strong>
-            </div>
-        </div>
         <div class="field">
             <h3 class="title">Next Few Matches Schedule</h3>
             <p>
@@ -198,6 +198,7 @@
 
 <script src="js/ui.js"></script>
 <script src="js/firebase.js"></script>
+<script src="js/events.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link 
     rel="stylesheet" 
