@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PUBG Tournaments | Registrations</title>
 </head>
-<body onload="signIn()">
+<body id="registrations-page">
     <nav class="navbar is-transparent is-black">
         <div class="container">
             <div class="navbar-brand">
@@ -77,8 +77,36 @@
         </div>
     </div>
 
-    <div onload="getRegistrations()" class="container">
-        stuff
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>
+                        <abbr title="Registered Email">email</abbr>
+                    </th>
+                    <th>
+                        <abbr title="Intagram ID">insta ID</abbr>
+                    </th>
+                    <th>
+                        Modes
+                    </th>
+                    <th>
+                        <abbr title="Registered phone number">Phone</abbr>
+                    </th>
+                    <th>
+                        <abbr title="payment phone number">Pay. no.</abbr>
+                    </th>
+                    <th>
+                        <abbr title="Screenshot Link">link</abbr>
+                    </th>
+                    <th>
+                        <abbr title="Points">Squad</abbr>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="users-list"></tbody>
+        </table>
     </div>
 </body>
 
@@ -90,6 +118,7 @@
 
 <script src="js/ui.js"></script>
 <script src="js/firebase.js"></script>
+<script src="js/events.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link 
     rel="stylesheet" 

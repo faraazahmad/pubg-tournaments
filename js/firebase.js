@@ -40,17 +40,6 @@ function signIn() {
     });
 }
 
-function getUserData() {
-    let user = firebase.auth().currentUser;
-    if(user != null) {
-        let nameTag = document.querySelector('#user-name');
-        nameTag.innerHTML = user.displayName;
-
-        let imgTag = document.querySelector('#user-img');
-        imgTag.src = user.photoURL;
-    }
-}
-
 // Firestore stuff
 const firestore = firebase.firestore();
 const settings = { timestampsInSnapshots: true };
@@ -104,7 +93,6 @@ function signUp() {
 
     let data = {
         username: username,
-        teamMates: teamMates,
         email: email,
         instaID: instaID,
         phone: phone,
@@ -130,13 +118,19 @@ function signUp() {
     // window.location.replace('/');
 }
 
-function getRegistrations() {
-    /*let usersRef = firestore.collection("users");
-    usersRef.where("username", "==", "mastercode98")
-    .get()
-    .then((data) => {
-        console.log(data);
+async function getRegistrations() {
+    let records = [];
+
+    // wait for data to arrive from database
+    await firestore.collection("users").get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            records.push(doc.data());
+        })
     })
-    */
-    firestore.collection("users").get().then((stuff) => { console.log(stuff) })
+    
+    let usersList = $('#users-list');
+    records.forEach((user) => {
+        usersList.appendChild(createRow(user));
+    })
 }

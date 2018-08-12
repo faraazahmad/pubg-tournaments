@@ -23,3 +23,62 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+var $ = function (param) {
+    return document.querySelector(param);
+}
+
+// create and return a div for listing registrations page
+function createRow(userObject) {
+    let row = document.createElement('tr');
+    // div.id = 'user-item';
+
+    let td;
+    let keys = [
+        'username',
+        'email',
+        'instaID',
+        'modes',
+        'phone',
+        'payPhone',
+        'screenshotLink',
+        'squad'
+    ];
+    
+    keys.forEach((key) => {
+        td = document.createElement('td');
+        // create a tag with link
+        if(key == 'screenshotLink') {
+            let a = document.createElement('a');
+            a.href = userObject[key];
+            // add link icon to a tag
+            let i = document.createElement('i');
+            i.className += 'fas fa-link';
+            a.appendChild(i);
+            // append a tag to row
+            td.appendChild(a);
+        }
+        else {
+            if(userObject[key] == '')
+            td.innerHTML = '-';
+            else {
+                td.innerHTML = userObject[key] ;
+            }
+        }
+        row.appendChild(td);
+    });
+
+    return row;
+}
+
+// When user is logged in, add profile name and pic in navbar
+function getUserData() {
+    let user = firebase.auth().currentUser;
+    if (user != null) {
+        let nameTag = document.querySelector('#user-name');
+        nameTag.innerHTML = user.displayName;
+
+        let imgTag = document.querySelector('#user-img');
+        imgTag.src = user.photoURL;
+    }
+}
