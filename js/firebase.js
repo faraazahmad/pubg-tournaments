@@ -134,3 +134,7 @@ async function getRegistrations() {
         usersList.appendChild(createRow(user));
     })
 }
+
+function getCurrentUser() {
+    return firebase.auth().currentUser;
+}

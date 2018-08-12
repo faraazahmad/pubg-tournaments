@@ -124,3 +124,13 @@ function addViewRegButton() {
         }
     }
 }
+
+/*
+    <div class="navbar-item">
+        <div class="field is-grouped">
+            <p class="control">
+                <a id="view-reg" class="button is-link"></a>
+            </p>
+        </div>
+    </div>
+*/

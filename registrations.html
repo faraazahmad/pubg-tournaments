@@ -7,8 +7,8 @@
     <title>PUBG Tournaments | Registrations</title>
     <script src="js/helper.js"></script>
 </head>
-<body id="registrations-page">
-    <nav class="navbar is-transparent is-black">
+<body onload="signIn()">
+    <nav onload="getUserData()" class="navbar is-transparent is-black">
         <div class="container">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
@@ -22,7 +22,7 @@
             </div>
         
             <div id="navbarExampleTransparentExample" class="navbar-menu">
-                <div class="navbar-start"></div>
+                <div onload="addViewRegButton()" class="navbar-start"></div>
         
                 <div class="navbar-end">
                     <div class="navbar-item">
@@ -102,7 +102,7 @@
                     </th>
                 </tr>
             </thead>
-            <tbody id="users-list"></tbody>
+            <tbody onload="getRegistrations()" id="users-list"></tbody>
         </table>
     </div>
 </body>
