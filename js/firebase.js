@@ -19,6 +19,9 @@ function signIn() {
         if (user) {
             // signed in
             getUserData();
+
+            // get all the registrations
+            getRegistrations();
         }
         else {
             //  not signed in; sign in
@@ -139,13 +142,6 @@ async function getRegistrations() {
 
 function userIsAdmin() {
     let currentUser = getCurrentUser();
-    const admins = [
-        'sfaraaz.1@gmail.com',
-        'prithipal007@gmail.com',
-        'batrapratham999@gmail.com',
-        'ulhassan.shabi123@gmail.com',
-        'Afzalhussain555@gmail.com'
-    ];
     if(currentUser != null && admins.includes(currentUser.email))
         return true;
     else
