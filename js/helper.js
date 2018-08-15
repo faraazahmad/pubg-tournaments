@@ -1,3 +1,3 @@
-let $ = function (param) {
-    return document.querySelector(param);
+let $ = function (selector) {
+    return document.querySelector(selector);
 }

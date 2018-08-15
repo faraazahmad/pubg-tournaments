@@ -119,24 +119,37 @@ function signUp() {
 }
 
 async function getRegistrations() {
-    let records = [];
-
-    // wait for data to arrive from database
-    await firestore.collection("users").get()
-    .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            records.push(doc.data());
-        })
-    })
-    
-    let usersList = $('#users-list');
-    records.forEach((user) => {
-        usersList.appendChild(createRow(user));
-    })
+    if(userIsAdmin()) {
+        let records = [];
+        
+        // wait for data to arrive from database
+        await firestore.collection("users").get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                records.push(doc.data());
+            });
+        });
+        
+        let usersList = $('#users-list');
+        records.forEach((user) => {
+            usersList.appendChild(createRow(user));
+        });
+    }
 }
 
 function userIsAdmin() {
     let currentUser = getCurrentUser();
+    const admins = [
+        'sfaraaz.1@gmail.com',
+        'prithipal007@gmail.com',
+        'batrapratham999@gmail.com',
+        'ulhassan.shabi123@gmail.com',
+        'Afzalhussain555@gmail.com'
+    ];
+    if(currentUser != null && admins.includes(currentUser.email))
+        return true;
+    else
+        return false;
 }
 
 function getCurrentUser() {

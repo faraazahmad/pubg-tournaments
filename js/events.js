@@ -16,6 +16,3 @@ addEvent("#registrations-page", signIn);
 
 // put user name and pic on .navbar when it loads
 addEvent('.navbar', getUserData);
-
-// add view registrations button on navbar
-addEvent('.navbar-start', addViewRegButton);
