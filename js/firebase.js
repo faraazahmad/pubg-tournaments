@@ -19,6 +19,9 @@ function signIn() {
         if (user) {
             // signed in
             getUserData();
+
+            // get all the registrations
+            getRegistrations();
         }
         else {
             //  not signed in; sign in
@@ -119,20 +122,30 @@ function signUp() {
 }
 
 async function getRegistrations() {
-    let records = [];
+    if(userIsAdmin()) {
+        let records = [];
+        
+        // wait for data to arrive from database
+        await firestore.collection("users").get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                records.push(doc.data());
+            });
+        });
+        
+        let usersList = $('#users-list');
+        records.forEach((user) => {
+            usersList.appendChild(createRow(user));
+        });
+    }
+}
 
-    // wait for data to arrive from database
-    await firestore.collection("users").get()
-    .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            records.push(doc.data());
-        })
-    })
-    
-    let usersList = $('#users-list');
-    records.forEach((user) => {
-        usersList.appendChild(createRow(user));
-    })
+function userIsAdmin() {
+    let currentUser = getCurrentUser();
+    if(currentUser != null && admins.includes(currentUser.email))
+        return true;
+    else
+        return false;
 }
 
 function getCurrentUser() {
