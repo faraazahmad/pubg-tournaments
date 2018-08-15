@@ -135,6 +135,10 @@ async function getRegistrations() {
     })
 }
 
+function userIsAdmin() {
+    let currentUser = getCurrentUser();
+}
+
 function getCurrentUser() {
     return firebase.auth().currentUser;
 }

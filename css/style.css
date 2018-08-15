@@ -7,31 +7,16 @@ body, html {
     padding-top: 1.5rem;
 }
 
-#banner {
-    background: linear-gradient(135deg, #9600fb 0%, #00ffd0 100%);
-}
-
-.big-banner {
-    padding: 4rem 0;
-    min-height: 100vh;
-    height: 100%;
-}
-
-#banner .card * {
-    background-color: #262f3d;
-    color: #a6a6a6;
-}
-
-#banner .card:hover {
-    transform: translateY(-0.15);
-}
-
 .navbar {
-    background-color: #262f3d !important;
+    background-color: #1b214d !important;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+}
+
+.navbar * {
+    color: white;
 }
 
 @media screen and (max-width: 768px) {
@@ -44,4 +29,28 @@ body, html {
         padding-top: 1rem;
         width: 30%;
     }
+    #logo {
+        transform: scale(2);
+    }
+}
+
+.is-insta:active,
+.is-insta:link,
+.is-insta:focus,
+.is-insta:hover,
+.is-insta:visited {
+    color: white;
+    background: rgb(131,58,180);
+    background: linear-gradient(135deg, rgba(131,58,180,1), rgba(253,29,29,1), rgba(252,176,69,1));
+    border-color: rgb(131,58,180);
+}
+
+.is-fb:active,
+.is-fb:link,
+.is-fb:visited,
+.is-fb:hover,
+.is-fb:focus {
+    color: white;
+    background-color: #3b5998;
+    border-color: #3b5998;
 }
