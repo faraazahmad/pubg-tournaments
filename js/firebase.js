@@ -103,7 +103,6 @@ function signUp() {
         screenshotLink: screenshotLink,
         modes: modes,
         squad: squad,
-        uid: firebase.auth().currentUser.uid
     };
 
     // if everything is okay
