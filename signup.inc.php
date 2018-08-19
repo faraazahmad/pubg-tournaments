@@ -64,7 +64,7 @@ if(isset($_POST['Submit'])){
                     fclose($handle);
                   }
 
-                header("Location:Signup.php?reg=1");
+                header("Location:signup.html");
                   exit();
 
  }
