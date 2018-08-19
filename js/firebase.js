@@ -15,6 +15,17 @@ let provider = new firebase.auth.GoogleAuthProvider();
 
 function signIn() {
     // check if user is signed in
+    let user = getCurrentUser();
+    if (user) {
+        // show user's display name on navbar
+        getUserData()
+
+        // get data of all registrations
+        getRegistrations();
+    }
+    else {
+        
+    }
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             // signed in
@@ -25,12 +36,11 @@ function signIn() {
         }
         else {
             //  not signed in; sign in
-            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
+            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
                 .then(function () {
-                    // In memory persistence will be applied to the signed in Google user
-                    // even though the persistence was set to 'none' and a page redirect
-                    // occurred.
-                    return firebase.auth().signInWithRedirect(provider);
+                    // session will be stored locally and an expilicit sign out is required
+                    // to sign out
+                    return firebase.auth().signInWithPopup(provider);
                 })
                 .catch(function (error) {
                     // Handle Errors here.
