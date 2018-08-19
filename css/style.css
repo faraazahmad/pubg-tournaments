@@ -18,7 +18,11 @@ body, html {
 .navbar * {
     color: white;
 }
-
+#pubgLogo {
+width: 300px;
+height: 100px;
+margin-left: 180px;
+}
 @media screen and (max-width: 768px) {
     .body {
         padding: 1rem 1rem;
