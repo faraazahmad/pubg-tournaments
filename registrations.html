@@ -7,7 +7,7 @@
     <title>PUBG Tournaments | Registrations</title>
     <script src="js/helper.js"></script>
 </head>
-<body onload="signIn()">
+<body onload="signIn('registrations')">
     <nav onload="getUserData()" class="navbar is-transparent is-black">
         <div class="container">
             <div class="navbar-brand">
@@ -58,6 +58,10 @@
                 <h1 class="title">
                     User Registrations
                 </h1>
+                <h2 class="subtitle">
+                    You need to be an admin and logged in through your Google account
+                    to view registered users.
+                </h2>
             </div>
         </div>
     </section>
@@ -87,7 +91,7 @@
                         <abbr title="Screenshot Link">link</abbr>
                     </th>
                     <th>
-                        <abbr title="Points">Squad</abbr>
+                        <abbr title="squad">Squad mates</abbr>
                     </th>
                 </tr>
             </thead>
@@ -127,7 +131,6 @@
 
 <script src="js/ui.js"></script>
 <script src="js/firebase.js"></script>
-<script src="js/events.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link 
     rel="stylesheet" 

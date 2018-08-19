@@ -13,15 +13,18 @@ firebase.initializeApp(config);
 // Auth stuff
 let provider = new firebase.auth.GoogleAuthProvider();
 
-function signIn() {
+// pass page name as argument from html file
+function signIn(page) {
     // check if user is signed in
     let user = getCurrentUser();
     if (user) {
         // show user's display name on navbar
         getUserData()
 
-        // get data of all registrations
-        getRegistrations();
+        if (page == 'registrations') {
+            // get data of all registrations
+            getRegistrations();
+        }
     }
     else {
         
@@ -38,7 +41,7 @@ function signIn() {
             //  not signed in; sign in
             firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
                 .then(function () {
-                    // session will be stored locally and an expilicit sign out is required
+                    // session will be stored locally and an explicit sign out is required
                     // to sign out
                     return firebase.auth().signInWithPopup(provider);
                 })
