@@ -1,6 +1,7 @@
 <?php
 if(isset($_POST['Submit'])){
-  include_once 'database/db_connect.php';
+  //temporary removal of MySQL database
+  //include_once 'database/db_connect.php';
 
   $uname=mysqli_real_escape_string($con,$_POST['username']);
   $team=mysqli_real_escape_string($con,$_POST['teammates']);
@@ -22,11 +23,11 @@ if(isset($_POST['Submit'])){
                 }
                 else{*/
                   //insert the registration into database
-                  //comment out the below code if mysql is not required
-                  $sql1 = "INSERT INTO registrations (username, team, email, insta, phone, payphone, isSquad, screenshot) VALUES ('$uname','$team','$email','$insta','$phone','$payphone','$isSquad','$screenshot')";
+                  //comment out the below code if mysql is required
+                 /* $sql1 = "INSERT INTO registrations (username, team, email, insta, phone, payphone, isSquad, screenshot) VALUES ('$uname','$team','$email','$insta','$phone','$payphone','$isSquad','$screenshot')";
                   echo $sql1;
                   $res=mysqli_query($con,$sql1);
-
+                */
 
 
                   //make a csv file for the cuurent date. eg:19-08-2018_SQUAD.csv and read number of lines
