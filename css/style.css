@@ -32,6 +32,9 @@ body, html {
     #logo {
         transform: scale(2);
     }
+    .banner {
+        padding: 1rem;
+    }
 }
 
 footer {
@@ -57,4 +60,27 @@ footer {
     color: white;
     background-color: #3b5998;
     border-color: #3b5998;
+}
+
+.banner:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+.banner:nth-child(odd) {
+    background-color: #fff;
+}
+
+.scroll-menu {
+    overflow: auto;
+    white-space: nowrap;
+    padding: 1rem;
+}
+
+.scroll-menu .card {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.scroll-menu .card .card-content {
+    text-align: center;
 }
